@@ -682,7 +682,7 @@ try:
                     recipient_email="edwardlorilla2201.edwardlancelorilla@blogger.com",
                     subject=blog_content["title"],
                     content=blog_content["blog"],
-                    file_name
+                    file_name=file_name
                 )
             else:
                 print(f"Blog content generation failed for entry '{entry['title']}'. Email will not be sent.")
