@@ -683,7 +683,7 @@ try:
             if "Error" not in blog_content:
                 # Send the blog content via email
                 send_email(
-                    recipient_email="edwardlorilla2208.edwardlancelorilla@blogger.com",
+                    recipient_email="edwardlorilla2212.edwardlancelorilla@blogger.com",
                     subject=blog_content["title"],
                     content=blog_content["blog"],
                     attachment_path=file_name
