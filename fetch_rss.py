@@ -32,7 +32,7 @@ if os.path.exists(seed_file):
         seed = int(file.read().strip()) + 1
 else:
     seed = 1
-rss_url = 'https://www.manilatimes.net/world/feed/'
+rss_url = 'https://www.manilatimes.net/sports/feed/'
 feed = feedparser.parse(rss_url)
 
 # Parse the RSS feed entries
