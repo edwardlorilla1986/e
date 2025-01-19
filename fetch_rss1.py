@@ -5,17 +5,34 @@ import os
 import random
 import subprocess
 import smtplib
-from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.base import MIMEBase
+from email import encoders
+
 import os
 from datetime import datetime
-
+import requests
 import feedparser
 import json
 import os
 from datetime import datetime
-
-rss_url = 'https://www.manilatimes.net/news/national/feed/'
+def download_image(image_url, file_name):
+    response = requests.get(image_url)
+    with open(file_name, 'wb') as file:
+        file.write(response.content)
+    print(f'Download Completed: {file_name}')
+width = 720
+height = 1280
+model = 'flux'
+# Read seed from file or initialize it
+seed_file = 'seed.txt'
+if os.path.exists(seed_file):
+    with open(seed_file, 'r') as file:
+        seed = int(file.read().strip()) + 1
+else:
+    seed = 1
+rss_url = 'https://www.manilatimes.net/entertainment-lifestyle/feed/'
 feed = feedparser.parse(rss_url)
 
 # Parse the RSS feed entries
@@ -594,7 +611,7 @@ def get_ollama_response(input_text, no_words, blog_style, word_of_the_day, model
     except Exception as e:
         return f"Error during query: {e}"
 
-def send_email(recipient_email, subject, content):
+def send_email(recipient_email, subject, content, attachment_path):
     """Send the generated blog content via email."""
     try:
         sender_email = "edwardlorilla2017@gmail.com"
@@ -608,7 +625,15 @@ def send_email(recipient_email, subject, content):
 
         # Attach the blog content
         message.attach(MIMEText(content, "plain"))
-
+        with open(attachment_path, "rb") as attachment:
+            part = MIMEBase("application", "octet-stream")
+            part.set_payload(attachment.read())
+            encoders.encode_base64(part)
+            part.add_header(
+                "Content-Disposition",
+                f"attachment; filename={os.path.basename(attachment_path)}",
+            )
+            message.attach(part)
         # Connect to the SMTP server
         with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.starttls()
@@ -621,6 +646,20 @@ def send_email(recipient_email, subject, content):
 word_of_the_day = fetch_word_of_the_day() or "innovation"
 try:
     for entry in existing_entries:
+        __title = entry["title"]
+        image_url = f"https://pollinations.ai/p/{__title}?width={width}&height={height}&seed={seed}&model={model}"
+        file_name = f"image.jpg"
+        file_name1 = f"generated/image_{seed}.jpg"
+        try:
+            download_image(image_url, file_name)
+            download_image(image_url, file_name1)
+        except Exception as e:
+            print(f"Error generating random inputs for entry '{entry['title']}': {e}")
+            continue  # Skip to the next entry if input generation fails
+        
+        # Save the updated seed
+        with open(seed_file, 'w') as file:
+            file.write(str(seed))
         try:
             # Generate random inputs based on the entry's title and description
             topic, word_count, audience = generate_random_inputs(entry["title"] + " " + entry["description"])
@@ -645,7 +684,8 @@ try:
                 send_email(
                     recipient_email="edwardlorilla1986.edwardlancelorilla1@blogger.com",
                     subject=blog_content["title"],
-                    content=blog_content["blog"]
+                    content=blog_content["blog"],
+                    attachment_path=file_name
                 )
             else:
                 print(f"Blog content generation failed for entry '{entry['title']}'. Email will not be sent.")
