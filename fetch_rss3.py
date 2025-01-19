@@ -15,7 +15,7 @@ import json
 import os
 from datetime import datetime
 
-rss_url = 'https://www.manilatimes.net/legal-advice/feed/'
+rss_url = 'https://www.eaglenews.ph/feed/'
 feed = feedparser.parse(rss_url)
 
 # Parse the RSS feed entries
