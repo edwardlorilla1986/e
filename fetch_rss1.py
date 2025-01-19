@@ -12,7 +12,6 @@ from email import encoders
 import requests
 import os
 from datetime import datetime
-import requests
 import feedparser
 import json
 import os
