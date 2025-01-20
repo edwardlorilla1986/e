@@ -126,7 +126,7 @@ jobs:
       - name: Fetch RSS feed and store data
         run: |
           set +e  # Allow the script to continue on errors
-          python fetch_rss1_2.py
+          python fetch_rss1_4.py
           if [ $? -ne 0 ]; then
             echo "Error occurred while running fetch_rss.py. Continuing with other tasks..."
           fi
