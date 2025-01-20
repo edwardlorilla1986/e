@@ -341,7 +341,7 @@ jobs:
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT }}
-  update-rss1_4:
+  update-rss1__4:
     runs-on: ubuntu-latest
 
     steps:
