@@ -43,7 +43,17 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
         INSERT INTO blog_posts (title, summary, keywords, content, slug, thumbnail, created_at, updated_at)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
     """
-    values = (title, summary, keywords, content, slug, thumbnail, created_at, updated_at)
+    jsontitle = {
+    "en": title
+    }
+    jsonsummary = {
+        "en": summary
+
+    }
+    jsoncontent = {
+        "en": content
+    }
+    values = (json.dumps(jsontitle), json.dumps(jsonsummary), keywords, json.dumps(jsoncontent), slug, thumbnail, created_at, updated_at)
 
     # Execute the query and commit the transaction
     cursor.execute(sql, values)
