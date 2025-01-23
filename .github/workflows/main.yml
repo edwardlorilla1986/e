@@ -58,6 +58,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss1_2.py
@@ -130,6 +135,11 @@ jobs:
             MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
             MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
             MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
             MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}  # MySQL database name (stored in GitHub Secrets)
         run: |
           set +e  # Allow the script to continue on errors
@@ -163,6 +173,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -198,6 +209,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss1_6.py
@@ -230,6 +246,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -265,6 +282,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss1_7.py
@@ -297,6 +319,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -332,6 +355,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss1_8.py
@@ -364,6 +392,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -399,6 +428,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss1_5.py
@@ -431,6 +465,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -466,6 +501,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss1_4.py
@@ -498,6 +538,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -533,6 +574,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss.py
@@ -565,6 +611,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -600,6 +647,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss1_1.py
@@ -632,6 +684,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -667,6 +720,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss8.py
@@ -702,6 +760,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
           
 
@@ -738,6 +797,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss1.py
@@ -762,6 +826,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
+          pip install requests
 
       - name: Install System Dependencies
         run: |
@@ -796,6 +862,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss2.py
@@ -819,6 +890,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
+          pip install requests
 
       - name: Install System Dependencies
         run: |
@@ -853,6 +926,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss3.py
@@ -886,6 +964,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
+          pip install requests
 
       - name: Install System Dependencies
         run: |
@@ -920,6 +1000,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss4.py
@@ -954,6 +1039,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
+          pip install requests
 
       - name: Install System Dependencies
         run: |
@@ -988,6 +1075,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss5.py
@@ -1021,6 +1113,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
+          pip install requests
 
       - name: Install System Dependencies
         run: |
@@ -1055,6 +1149,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss6.py
@@ -1087,6 +1186,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
+          pip install requests
 
       - name: Install System Dependencies
         run: |
@@ -1121,6 +1222,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss7.py
@@ -1154,6 +1260,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1189,6 +1296,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss8.py
@@ -1222,6 +1334,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1257,6 +1370,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss9.py
@@ -1289,6 +1407,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1324,6 +1443,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss10.py
@@ -1357,6 +1481,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1392,6 +1517,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss11.py
@@ -1424,6 +1554,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1459,6 +1590,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss13.py
@@ -1491,6 +1627,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1526,6 +1663,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss14.py
@@ -1559,6 +1701,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1594,6 +1737,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss15.py
@@ -1627,8 +1775,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
-
       - name: Install System Dependencies
         run: |
           sudo apt-get clean
@@ -1662,6 +1810,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss16.py
@@ -1695,6 +1848,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1730,6 +1884,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss17.py
@@ -1763,6 +1922,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1798,6 +1958,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss18.py
@@ -1831,6 +1996,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1866,6 +2032,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss19.py
@@ -1899,6 +2070,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -1934,6 +2106,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss20.py
@@ -2002,6 +2179,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss21.py
@@ -2034,6 +2216,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -2069,6 +2252,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss22.py
@@ -2101,6 +2289,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -2136,6 +2325,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss23.py
@@ -2168,6 +2362,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -2203,6 +2398,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss24.py
@@ -2235,8 +2435,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
-
       - name: Install System Dependencies
         run: |
           sudo apt-get clean
@@ -2270,6 +2470,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss25.py
@@ -2302,6 +2507,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -2337,6 +2543,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss25.py
@@ -2370,6 +2581,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -2405,6 +2617,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss25.py
@@ -2438,6 +2655,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -2473,6 +2691,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss25.py
@@ -2506,6 +2729,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -2541,6 +2765,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss25.py
@@ -2575,6 +2804,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -2610,6 +2840,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss25.py
@@ -2643,6 +2878,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install feedparser
+          pip install mysql-connector-python
           pip install requests
 
       - name: Install System Dependencies
@@ -2678,6 +2914,11 @@ jobs:
           fi
 
       - name: Fetch RSS feed and store data
+        env:
+            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
+            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
+            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
+            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss25.py
