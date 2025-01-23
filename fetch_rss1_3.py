@@ -9,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
-
+import mysql.connector
 import os
 from datetime import datetime
 import requests
@@ -17,6 +17,43 @@ import feedparser
 import json
 import os
 from datetime import datetime
+
+def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
+    # Fetch MySQL credentials from environment variables
+    mysql_host = os.getenv('MYSQL_HOST')
+    mysql_user = os.getenv('MYSQL_USER')
+    mysql_password = os.getenv('MYSQL_PASSWORD')
+    mysql_database = os.getenv('MYSQL_DATABASE')
+
+    # Connect to the remote MySQL database
+    db = mysql.connector.connect(
+        host=mysql_host,
+        user=mysql_user,
+        password=mysql_password,
+        database=mysql_database
+    )
+
+    cursor = db.cursor()
+
+    # Insert current timestamp for created_at and updated_at
+    created_at = updated_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    # SQL query to insert the generated blog post
+    sql = """
+        INSERT INTO blog_posts (title, summary, keywords, content, slug, thumbnail, created_at, updated_at)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+    """
+    values = (title, summary, keywords, content, slug, thumbnail, created_at, updated_at)
+
+    # Execute the query and commit the transaction
+    cursor.execute(sql, values)
+    db.commit()
+
+    print(f"Blog post '{title}' inserted successfully!")
+
+    # Close the cursor and connection
+    cursor.close()
+    db.close()
 def download_image(image_url, file_name):
     response = requests.get(image_url)
     with open(file_name, 'wb') as file:
@@ -687,6 +724,15 @@ try:
                     content=blog_content["blog"],
                     attachment_path=file_name
                 )
+                title = blog_content["title"]
+                summary = blog_content["blog"]
+                content = blog_content["blog"]
+                keywords = "SEO, website, marketing, search engines"
+                slug = blog_content["title"]
+                thumbnail = "default-thumbnail.jpg"  # Placeholder or use a generated one
+                
+                # Insert the generated content into the MySQL database
+                insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
             else:
                 print(f"Blog content generation failed for entry '{entry['title']}'. Email will not be sent.")
         except Exception as e:
