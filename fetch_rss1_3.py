@@ -40,7 +40,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
 
     # SQL query to insert the generated blog post
     sql = """
-        INSERT INTO blog_posts (title, summary, keywords, content, slug, thumbnail, created_at, updated_at)
+        INSERT INTO blog_posts (title, summary, keywords, content, slug.lower().replace(' ', '-'), thumbnail, created_at, updated_at)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
     """
     jsontitle = {
