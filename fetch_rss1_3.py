@@ -13,7 +13,6 @@ import mysql.connector
 import os
 from datetime import datetime
 import requests
-import feedparser
 import json
 import os
 from datetime import datetime

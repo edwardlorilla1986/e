@@ -1,4 +1,6 @@
 
+import re
+import mysql.connector
 import feedparser
 import json
 import os
@@ -10,10 +12,6 @@ from email.mime.multipart import MIMEMultipart
 import os
 from datetime import datetime
 
-import feedparser
-import json
-import os
-from datetime import datetime
 
 rss_url = 'https://www.manilatimes.net/news/national/feed/'
 feed = feedparser.parse(rss_url)

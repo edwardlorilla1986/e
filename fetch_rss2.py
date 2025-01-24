@@ -1,4 +1,6 @@
 
+import re
+import mysql.connector
 import feedparser
 import json
 import os
@@ -7,11 +9,6 @@ import subprocess
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-import os
-from datetime import datetime
-
-import feedparser
-import json
 import os
 from datetime import datetime
 

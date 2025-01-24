@@ -1,4 +1,5 @@
-
+import re
+import mysql.connector
 import feedparser
 import json
 import os
@@ -13,7 +14,6 @@ from email import encoders
 import os
 from datetime import datetime
 import requests
-import feedparser
 import json
 import os
 from datetime import datetime
