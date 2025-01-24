@@ -1,4 +1,5 @@
-
+import re
+import mysql.connector
 import feedparser
 import json
 import os
@@ -13,10 +14,90 @@ from email import encoders
 import os
 from datetime import datetime
 import requests
-import feedparser
-import json
-import os
-from datetime import datetime
+
+def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
+    # Fetch MySQL credentials from environment variables
+    mysql_host = os.getenv('MYSQL_HOST')
+    mysql_user = os.getenv('MYSQL_USER')
+    mysql_password = os.getenv('MYSQL_PASSWORD')
+    mysql_database = os.getenv('MYSQL_DATABASE')
+
+    # Connect to the remote MySQL database
+    db = mysql.connector.connect(
+        host=mysql_host,
+        user=mysql_user,
+        password=mysql_password,
+        database=mysql_database
+    )
+
+    cursor = db.cursor()
+    created_at = updated_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    page_sql = """
+    INSERT INTO `pages` (
+        `id`, `slug`, `target`, `type`, `featured_image`, 
+        `tool_name`, `icon_image`, `custom_tool_link`, `post_status`, 
+        `page_status`, `tool_status`, `ads_status`, `popular`, 
+        `position`, `category_id`, `created_at`, `updated_at`
+    ) 
+    VALUES (
+        NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+    )
+    """
+    page_values = (
+        re.sub(r'[^a-zA-Z0-9\s-]', '', slug).replace('The title is: ', '').replace('The title of this blog post is: ', '').lower().strip().replace('\n', ' ').replace(' ', '-'), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
+        None, None, None,
+        1, 1,1,
+        1, 1, 1,
+        None, created_at, updated_at
+    )
+
+    # Execute the page insertion
+    cursor.execute(page_sql, page_values)
+    db.commit()
+
+    # Get the last inserted ID for `pages`
+    page_id = cursor.lastrowid
+    print(f"Inserted page ID: {page_id}")
+
+    # Insert current timestamp for created_at and updated_at
+    
+
+    # SQL query to insert the generated blog post
+
+    sql = """
+    INSERT INTO `page_translations` (
+        `locale`, 
+        `page_title`, 
+        `robots_meta`, 
+        `sitename_status`, 
+        `site_name_status`, 
+        `title`, 
+        `subtitle`, 
+        `short_description`, 
+        `description`, 
+        `page_id`, 
+        `created_at`, 
+        `updated_at`
+    ) 
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    """
+    values = (
+        "en", title.replace('The title is: ', '').replace('The title of this blog post is: ', '').strip('"').replace('\n', ' '), 1, 1,
+        1, title.replace('The title is: ', '').strip('"').replace('\n', ' '), title.replace('The title is: ', '').strip('"').replace('\n', ' '), title.replace('The title is: ', '').strip('"').replace('\n', ' '),
+        "<p>" +content + "</p>", page_id, created_at, updated_at
+    )
+  
+    cursor.execute(sql, values)
+    db.commit()
+
+    print(f"Blog post '{title}' inserted successfully!")
+
+    # Close the cursor and connection
+    cursor.close()
+    db.close()
+
+
+
 def download_image(image_url, file_name):
     response = requests.get(image_url)
     with open(file_name, 'wb') as file:
@@ -687,6 +768,13 @@ try:
                     content=blog_content["blog"],
                     attachment_path=file_name
                 )
+                title = blog_content["title"]
+                summary = blog_content["blog"]
+                content = blog_content["blog"]
+                keywords = "SEO, website, marketing, search engines"
+                slug = blog_content["title"]
+                thumbnail = "default-thumbnail.jpg" 
+                insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
             else:
                 print(f"Blog content generation failed for entry '{entry['title']}'. Email will not be sent.")
         except Exception as e:
