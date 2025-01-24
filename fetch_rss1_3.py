@@ -85,8 +85,8 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     values = (
-        "en", title, 1, 1,
-        1, title, title, title,
+        "en", title.replace('The title is: ', '').strip('"')[:55], 1, 1,
+        1, title.replace('The title is: ', '').strip('"')[:55], title.replace('The title is: ', '').strip('"')[:50], title.replace('The title is: ', '').strip('"')[:55],
         "<p>" +content + "</p>", page_id, created_at, updated_at
     )
   
