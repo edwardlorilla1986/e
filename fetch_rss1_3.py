@@ -47,7 +47,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     )
     """
     page_values = (
-        re.sub(r'[^a-zA-Z0-9\s-]', '', slug).lower().strip().replace(' ', '-'), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
+        re.sub(r'[^a-zA-Z0-9\s-]', '', slug).lower().strip().replace('\n', ' ').replace(' ', '-'), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
         None, None, None,
         1, 1,1,
         1, 1, 1,
@@ -85,7 +85,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     values = (
-        "en", title.replace('The title is: ', '').strip('"')[:55], 1, 1,
+        "en", title.replace('The title is: ', '').replace('The title of this blog post is: ', '').strip('"')[:55], 1, 1,
         1, title.replace('The title is: ', '').strip('"')[:55], title.replace('The title is: ', '').strip('"')[:50], title.replace('The title is: ', '').strip('"')[:55],
         "<p>" +content + "</p>", page_id, created_at, updated_at
     )
