@@ -34,9 +34,36 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     )
 
     cursor = db.cursor()
+    created_at = updated_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    page_sql = """
+    INSERT INTO `pages` (
+        `id`, `slug`, `target`, `type`, `featured_image`, 
+        `tool_name`, `icon_image`, `custom_tool_link`, `post_status`, 
+        `page_status`, `tool_status`, `ads_status`, `popular`, 
+        `position`, `category_id`, `created_at`, `updated_at`
+    ) 
+    VALUES (
+        NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+    )
+    """
+    page_values = (
+        slug.lower().replace(' ', '-'), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
+        None, None, None,
+        1, 1,1,
+        1, 1, 1,
+        None, created_at, updated_at
+    )
+
+    # Execute the page insertion
+    cursor.execute(page_sql, page_values)
+    db.commit()
+
+    # Get the last inserted ID for `pages`
+    page_id = cursor.lastrowid
+    print(f"Inserted page ID: {page_id}")
 
     # Insert current timestamp for created_at and updated_at
-    created_at = updated_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    
 
     # SQL query to insert the generated blog post
 
