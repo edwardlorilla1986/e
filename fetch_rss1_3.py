@@ -87,7 +87,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     values = (
         "en", title, 1, 1,
         1, title, title, title,
-        content, 1, created_at, updated_at
+        content, page_id, created_at, updated_at
     )
   
     cursor.execute(sql, values)
