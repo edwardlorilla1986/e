@@ -39,23 +39,21 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     created_at = updated_at = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
     # SQL query to insert the generated blog post
-    sql = """
-        INSERT INTO blog_posts (title, summary, keywords, content, slug.lower().replace(' ', '-'), thumbnail, created_at, updated_at)
-        VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+
+     sql = """
+        INSERT INTO `page_translations` (
+            `locale`, `page_title`, `robots_meta`, `sitename_status`, 
+            `site_name_status`, `title`, `subtitle`, `short_description`, 
+            `description`, `page_id`, `created_at`, `updated_at`
+        ) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
-    jsontitle = {
-    "en": title
-    }
-    jsonsummary = {
-        "en": summary
-
-    }
-    jsoncontent = {
-        "en": content
-    }
-    values = (json.dumps(jsontitle), json.dumps(jsonsummary), keywords, json.dumps(jsoncontent), slug, thumbnail, created_at, updated_at)
-
-    # Execute the query and commit the transaction
+     values = (
+        "en", title, 1, 1,
+        1, title, title, title,
+        content, 1, created_at, updated_at
+    )
+  
     cursor.execute(sql, values)
     db.commit()
 
