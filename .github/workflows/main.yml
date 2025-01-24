@@ -136,11 +136,6 @@ jobs:
             MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
             MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
             MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}
-        env:
-            MYSQL_HOST: ${{ secrets.MYSQL_HOST }}  # MySQL host IP (stored in GitHub Secrets)
-            MYSQL_USER: ${{ secrets.MYSQL_USER }}  # MySQL username (stored in GitHub Secrets)
-            MYSQL_PASSWORD: ${{ secrets.MYSQL_PASSWORD }}  # MySQL password (stored in GitHub Secrets)
-            MYSQL_DATABASE: ${{ secrets.MYSQL_DATABASE }}  # MySQL database name (stored in GitHub Secrets)
         run: |
           set +e  # Allow the script to continue on errors
           python fetch_rss1_3.py
