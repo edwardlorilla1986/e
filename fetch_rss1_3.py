@@ -41,13 +41,13 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     # SQL query to insert the generated blog post
 
      sql = """
-                INSERT INTO `page_translations` (
-                    `locale`, `page_title`, `robots_meta`, `sitename_status`, 
-                    `site_name_status`, `title`, `subtitle`, `short_description`, 
-                    `description`, `page_id`, `created_at`, `updated_at`
-                ) 
-                VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
-            """
+        INSERT INTO `page_translations` (
+            `locale`, `page_title`, `robots_meta`, `sitename_status`, 
+            `site_name_status`, `title`, `subtitle`, `short_description`, 
+            `description`, `page_id`, `created_at`, `updated_at`
+        ) 
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    """
      values = (
         "en", title, 1, 1,
         1, title, title, title,
