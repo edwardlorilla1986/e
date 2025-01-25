@@ -529,7 +529,7 @@ class AICrew:
         Make it polished and professional. Content: {content}
         """
         return self.run_ollama(prompt)
-def get_ollama_response(input_text, no_words, blog_style, word_of_the_day, model_name="wizardlm2"):
+def get_ollama_response(input_text, no_words, blog_style, word_of_the_day, model_name="llama3.1"):
     """Generate a blog using Ollama with the provided inputs."""
     today_year = datetime.now().year
     prompts = [
