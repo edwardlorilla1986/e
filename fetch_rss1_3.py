@@ -119,23 +119,15 @@ feed = feedparser.parse(rss_url)
 new_entries = []
 new_guids = set()
 
-for entry in feed.entries:
-    # Convert published date to datetime object
-    published_date = datetime.strptime(entry.published, '%a, %d %b %Y %H:%M:%S %z')
-    
-    # Collect relevant details
+for entry in reverse(feed.entries):
     new_entries.append({
         'title': entry.title,
         'link': entry.link,
-        'guid': entry.guid,
-        'description': entry.get('description', ''),  # Handle missing descriptions gracefully
-        'published': published_date,
-        'creator': entry.get('dc_creator', 'Unknown'),  # Extract creator if available
-        'categories': entry.get('tags', [])  # Handle categories
+        'description': entry.description,
+        'guid': entry.guid  # Unique identifier for each item
     })
+    new_guids.add(entry.guid)
 
-# Sort entries by published date in descending order
-sorted_entries = sorted(new_entries, key=lambda x: x['published'], reverse=True)
 # File paths
 file_path = 'rss_data.json'
 guids_file_path = 'guids.json'
@@ -165,7 +157,7 @@ if existing_files:
     increment = max([int(f.split('.')[0]) for f in existing_files if f.split('.')[0].isdigit()]) + 1
 
 # Add new entries and save them as increment files
-for entry in sorted_entries:
+for entry in new_entries:
     if entry['guid'] not in existing_guids:
         existing_entries.append(entry)
         existing_guids.add(entry['guid'])
