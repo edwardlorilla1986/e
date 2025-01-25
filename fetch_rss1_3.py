@@ -127,6 +127,7 @@ for entry in feed.entries:
     new_entries.append({
         'title': entry.title,
         'link': entry.link,
+        'guid': entry.guid  
         'description': entry.get('description', ''),  # Handle missing descriptions gracefully
         'published': published_date,
         'creator': entry.get('dc_creator', 'Unknown'),  # Extract creator if available
