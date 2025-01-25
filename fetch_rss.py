@@ -482,7 +482,7 @@ def generate_random_inputs(topic):
         "Spiritual Guides", "Religious Leaders", "Ethicists", "Activists", "Human Rights Advocates",
         "Policy Analysts", "Data Analysts", "Startup Mentors", "Cultural Historians", "Linguists"
     ]
-    no_words = 50000
+    no_words = 5000
     blog_style = random.choice(styles)
     return input_text, no_words, blog_style
 class AICrew:
