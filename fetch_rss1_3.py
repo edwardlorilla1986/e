@@ -119,7 +119,7 @@ feed = feedparser.parse(rss_url)
 new_entries = []
 new_guids = set()
 
-for entry in feed.entries:
+for entry in feed.entries[:20]:
     new_entries.append({
         'title': entry.title,
         'link': entry.link,
