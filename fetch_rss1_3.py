@@ -724,7 +724,7 @@ def send_email(recipient_email, subject, content, attachment_path):
     
 word_of_the_day = fetch_word_of_the_day() or "innovation"
 try:
-    for entry in existing_entries:
+    for entry in new_entries:
         __title = entry["title"]
         print(entry["title"])
         image_url = f"https://pollinations.ai/p/{__title}?width={width}&height={height}&seed={seed}&model={model}"
