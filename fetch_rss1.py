@@ -766,6 +766,13 @@ try:
                     content=blog_content["blog"],
                     attachment_path=file_name
                 )
+                title = blog_content["title"]
+                summary = blog_content["blog"]
+                content = blog_content["blog"]
+                keywords = "SEO, website, marketing, search engines"
+                slug = blog_content["title"]
+                thumbnail = "default-thumbnail.jpg" 
+                insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
             else:
                 print(f"Blog content generation failed for entry '{entry['title']}'. Email will not be sent.")
         except Exception as e:
