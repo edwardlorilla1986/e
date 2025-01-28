@@ -44,7 +44,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     )
     """
     page_values = (
-        re.sub(r'[^a-zA-Z0-9\s-]', '', slug).replace('The title is: ', '').replace('The title of this blog post is: ', '').lower().strip().replace('\n', ' ').replace(' ', '-'), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
+        re.sub(r'[^a-zA-Z0-9\s-]', '', slug.replace('The title is: ', '').replace('The title of this blog post is: ', '')).lower().strip().replace('\n', ' ').replace(' ', '-'), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
         None, None, None,
         1, 1,1,
         1, 1, 1,
