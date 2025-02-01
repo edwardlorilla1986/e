@@ -760,8 +760,8 @@ try:
                 # Send the blog content via email
                 send_email(
                     recipient_email="edwardlorilla2215.edwardlancelorilla@blogger.com",
-                    subject=blog_content["title"],
-                    content=blog_content["blog"],
+                    subject=blog_content["title"].replace('Here is the edited blog post:', '').replace("\n", "<br>").replace('The title is: ', '').replace('The title of this blog post is: ', '').replace('Here is a polished and professional version of the blog post:', ''),
+                    content=blog_content["blog"].replace('Here is the edited blog post:', '').replace("\n", "<br>").replace('The title is: ', '').replace('The title of this blog post is: ', '').replace('Here is a polished and professional version of the blog post:', ''),
                     attachment_path=file_name
                 )
                 title = blog_content["title"].replace('Here is the edited blog post:', '').replace("\n", "<br>").replace('The title is: ', '').replace('The title of this blog post is: ', '').replace('Here is a polished and professional version of the blog post:', '')
