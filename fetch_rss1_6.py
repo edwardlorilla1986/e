@@ -763,12 +763,12 @@ try:
                     content=blog_content["blog"],
                     attachment_path=file_name
                 )
-                title = blog_content["title"]
-                summary = blog_content["blog"]
-                content = blog_content["blog"]
+                title = blog_content["title"].replace('Here is the edited blog post:', '').replace("\n", "<br>").replace('The title is: ', '').replace('The title of this blog post is: ', '').replace('Here is a polished and professional version of the blog post:', '')
+                summary = blog_content["blog"].replace('Here is the edited blog post:', '').replace("\n", "<br>").replace('The title is: ', '').replace('The title of this blog post is: ', '').replace('Here is a polished and professional version of the blog post:', '')
+                content = blog_content["blog"].replace('Here is the edited blog post:', '').replace("\n", "<br>").replace('The title is: ', '').replace('The title of this blog post is: ', '').replace('Here is a polished and professional version of the blog post:', '')
                 keywords = "SEO, website, marketing, search engines"
-                slug = blog_content["title"]
-                thumbnail = "default-thumbnail.jpg"  # Placeholder or use a generated one
+                slug = blog_content["title"].replace('Here is the edited blog post:', '').replace("\n", "<br>").replace('The title is: ', '').replace('The title of this blog post is: ', '').replace('Here is a polished and professional version of the blog post:', '')
+                thumbnail = "default-thumbnail.jpg" 
                 
                 # Insert the generated content into the MySQL database
                 insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
