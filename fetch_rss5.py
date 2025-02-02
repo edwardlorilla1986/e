@@ -720,14 +720,14 @@ try:
                 # Send the blog content via email
                 send_email(
                     recipient_email="edwardlorilla2205.edwardlancelorilla@blogger.com",
-                    subject=blog_content["title"].replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', ''),
+                    subject=blog_content["title"].replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', ''),
                     content=blog_content["blog"].replace('Here's a polished and professional version of the blog post:', '')
                 )
-                title = blog_content["title"].replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '')
+                title = blog_content["title"].replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '')
                 summary = blog_content["blog"].replace('Here's a polished and professional version of the blog post:', '')
                 content = blog_content["blog"].replace('Here's a polished and professional version of the blog post:', '')
                 keywords = "SEO, website, marketing, search engines"
-                slug = blog_content["title"].replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '')
+                slug = blog_content["title"].replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '')
                 thumbnail = "default-thumbnail.jpg" 
                 insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
             else:
