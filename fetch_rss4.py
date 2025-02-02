@@ -722,11 +722,11 @@ try:
                 send_email(
                     recipient_email="edwardlorilla2204.edwardlancelorilla@blogger.com",
                     subject=blog_content["title"].replace('Based on your edited blog post, I would title it:', ''),
-                    content=blog_content["blog"]
+                    content=blog_content["blog"].replace('Here's a polished and professional version of the blog post:', '')
                 )
                 title = blog_content["title"].replace('Based on your edited blog post, I would title it:', '')
-                summary = blog_content["blog"]
-                content = blog_content["blog"]
+                summary = blog_content["blog"].replace('Here's a polished and professional version of the blog post:', '')
+                content = blog_content["blog"].replace('Here's a polished and professional version of the blog post:', '')
                 keywords = "SEO, website, marketing, search engines"
                 slug = blog_content["title"].replace('Based on your edited blog post, I would title it:', '')
                 thumbnail = "default-thumbnail.jpg" 
