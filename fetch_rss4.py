@@ -721,14 +721,14 @@ try:
                 # Send the blog content via email
                 send_email(
                     recipient_email="edwardlorilla2204.edwardlancelorilla@blogger.com",
-                    subject=blog_content["title"],
+                    subject=blog_content["title"].replace('Based on your edited blog post, I would title it:', ''),
                     content=blog_content["blog"]
                 )
-                title = blog_content["title"]
+                title = blog_content["title"].replace('Based on your edited blog post, I would title it:', '')
                 summary = blog_content["blog"]
                 content = blog_content["blog"]
                 keywords = "SEO, website, marketing, search engines"
-                slug = blog_content["title"]
+                slug = blog_content["title"].replace('Based on your edited blog post, I would title it:', '')
                 thumbnail = "default-thumbnail.jpg" 
                 insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
             else:
