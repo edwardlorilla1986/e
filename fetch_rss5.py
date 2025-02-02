@@ -40,7 +40,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     )
     """
     page_values = (
-        re.sub(r'[^a-zA-Z0-9\s-]', '', slug.replace('The title is: ', '').replace('The title of this blog post is: ', '')).lower().strip().replace('\n', ' ').replace(' ', '-').replace('the-title-of-this-polished-and-professional-blog-post-is', ""), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
+        re.sub(r'[^a-zA-Z0-9\s-]', '', slug.replace('The title is: ', '').replace('The title of this blog post is:', '')).lower().strip().replace('\n', ' ').replace(' ', '-').replace('the-title-of-this-polished-and-professional-blog-post-is', ""), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
         None, None, None,
         1, 1,1,
         1, 1, 1,
@@ -78,9 +78,9 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     values = (
-        "en", title.replace('The title is: ', '').replace('The title of this blog post is: ', '').strip('"').replace('\n', ' '), 1, 1,
+        "en", title.replace('The title is: ', '').replace('The title of this blog post is:', '').strip('"').replace('\n', ' '), 1, 1,
         1, title.replace('The title is: ', '').strip('"').replace('\n', ' '), title.replace('The title is: ', '').strip('"').replace('\n', ' '), title.replace('The title is: ', '').strip('"').replace('\n', ' '),
-        "<p>" +content.replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace("\n", "<br>").replace('The title is: ', '').replace('The title of this blog post is: ', '').replace('Here is a polished and professional version of the blog post:', '')+ "</p>", page_id, created_at, updated_at
+        "<p>" +content.replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace("\n", "<br>").replace('The title is: ', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')+ "</p>", page_id, created_at, updated_at
     )
   
     cursor.execute(sql, values)
