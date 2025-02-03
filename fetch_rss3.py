@@ -460,7 +460,7 @@ def generate_random_inputs(topic):
         "Spiritual Guides", "Religious Leaders", "Ethicists", "Activists", "Human Rights Advocates",
         "Policy Analysts", "Data Analysts", "Startup Mentors", "Cultural Historians", "Linguists"
     ]
-    no_words = 1000
+    no_words = 50000
     blog_style = random.choice(styles)
     return input_text, no_words, blog_style
 class AICrew:
@@ -721,11 +721,11 @@ try:
                 send_email(
                     recipient_email="edwardlorilla2203.edwardlancelorilla@blogger.com",
                     subject=blog_content["title"].replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', ''),
-                    content=blog_content["blog"].replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post:", '')
+                    content=blog_content["blog"].replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post:", '')
                 )
                 title = blog_content["title"].replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')
-                summary = blog_content["blog"].replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post:", '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('\n', '<br>').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')
-                content = blog_content["blog"].replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post:", '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('\n', '<br>').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')
+                summary = blog_content["blog"].replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post:", '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('\n', '<br>').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')
+                content = blog_content["blog"].replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post:", '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('\n', '<br>').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')
                 keywords = "SEO, website, marketing, search engines"
                 slug = blog_content["title"].replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')
                 thumbnail = "default-thumbnail.jpg" 
