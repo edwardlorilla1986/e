@@ -757,11 +757,12 @@ try:
         try:
             # Check if the content contains "Error"
             if "Error" not in blog_content:
-                # Send the blog content via email
+                testTitle = blog_content["title"].replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '').replace('The title of the blog post is', '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')
+                testContent = blog_content["blog"].replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '').replace('\n', '<br>')
                 send_email(
                     recipient_email="edwardlorilla2050.edwardlancelorilla@blogger.com",
-                    subject=blog_content["title"].replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '').replace('The title of the blog post is', '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', ''),
-                    content=blog_content["blog"].replace('<br>', '').replace('*', '').replace('Here's a polished and professional version of the blog post:', '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('\n', '<br>').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', ''),
+                    subject=testTitle,
+                    content = testContent,
                     attachment_path=file_name
                 )
                 title = blog_content["title"].replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')
