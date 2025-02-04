@@ -43,8 +43,9 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
         NULL, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
     )
     """
+    pgSlug = re.sub(r'[^a-zA-Z0-9\s-]', '', slug.replace('The title is:', '').replace('The title of this blog post is:', '')).lower().strip().replace('\n', ' ').replace(' ', '-').replace('the-title-of-this-polished-and-professional-blog-post-is', "").replace('the-title-of-this-polished-and-professional-blog-post-is', "")
     page_values = (
-        re.sub(r'[^a-zA-Z0-9\s-]', '', slug.replace('The title is:', '').replace('The title of this blog post is:', '')).lower().strip().replace('\n', ' ').replace(' ', '-').replace('the-title-of-this-polished-and-professional-blog-post-is', "").replace('the-title-of-this-polished-and-professional-blog-post-is', ""), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
+        pgSlug , "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
         None, None, None,
         1, 1,1,
         1, 1, 1,
@@ -89,7 +90,41 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
   
     cursor.execute(sql, values)
     db.commit()
+    API_KEY = "7ab877d3e5d04c1a8952e29d9ce9e7e6"
+    INDEXNOW_ENDPOINTX = f"https://multiculturaltoolbox.com/blog/{pgSlug}"
 
+
+# URL to be indexed
+    URLS = [INDEXNOW_ENDPOINTX]
+
+    # IndexNow API Endpoint
+    INDEXNOW_ENDPOINT = f"https://api.indexnow.org/indexnow"
+
+    # Prepare data payload
+    payload = {
+        "host": "multiculturaltoolbox.com",  # Replace with your actual domain
+        "key": API_KEY,
+        "keyLocation": f"https://multiculturaltoolbox.com/{API_KEY}.txt",  # Place API key on your site
+        "urlList": URLS
+    }
+    try:
+        # Send request to IndexNow
+        response = requests.post(INDEXNOW_ENDPOINT, json=payload, headers={'Content-Type': 'application/json'})
+        # Check response
+        response.raise_for_status()  # Raise an exception for 4xx/5xx responses
+        # Success response
+        print("✅ URL successfully submitted to IndexNow!")
+        print("🔹 Response:", response.json())
+
+    except requests.exceptions.RequestException as e:
+        # Handle request exceptions (network errors, bad responses, etc.)
+        print("❌ Error submitting URL to IndexNow")
+        print(f"🔹 Exception: {e}")
+    # Print response
+    if response.status_code == 200:
+        print("URL successfully submitted to IndexNow!")
+    else:
+        print(f"Error: {response.status_code} - {response.text}")
     print(f"Blog post '{title}' inserted successfully!")
 
     # Close the cursor and connection
@@ -103,6 +138,7 @@ def download_image(image_url, file_name):
     with open(file_name, 'wb') as file:
         file.write(response.content)
     print(f'Download Completed: {file_name}')
+
 width = 720
 height = 1280
 model = 'flux'
