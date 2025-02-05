@@ -40,7 +40,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     )
     """
     page_values = (
-        re.sub(r'[^a-zA-Z0-9\s-]', '', slug.replace('The title is:', '').replace('The title of this blog post is:', '')).lower().strip().replace('\n', ' ').replace(' ', '-').replace('the-title-of-this-polished-and-professional-blog-post-is', ""), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
+        re.sub(r'[^a-zA-Z0-9\s-]', '', slug.replace('The title is', '').replace('The title of this blog post is', '')).lower().strip().replace('\n', ' ').replace(' ', '-').replace('the-title-of-this-polished-and-professional-blog-post-is', ""), "_self", "post", "https://multiculturaltoolbox.com/assets/img/nastuh.jpg",
         None, None, None,
         1, 1,1,
         1, 1, 1,
@@ -78,9 +78,9 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     values = (
-        "en", title.replace('The title is:', '').replace('The title of this blog post is:', '').strip('"').replace('\n', ' '), 1, 1,
-        1, title.replace('The title is:', '').strip('"').replace('\n', ' '), title.replace('The title is:', '').strip('"').replace('\n', ' '), title.replace('The title is:', '').strip('"').replace('\n', ' '),
-        "<p>" +content.replace('Here is the edited blog post', '').replace('Here is the revised blog post:', '').replace('\n', '<br>').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')+ "</p>", page_id, created_at, updated_at
+        "en", title.replace('The title is', '').replace('The title of this blog post is', '').strip('"').replace('\n', ' '), 1, 1,
+        1, title.replace('The title is', '').strip('"').replace('\n', ' '), title.replace('The title is', '').strip('"').replace('\n', ' '), title.replace('The title is', '').strip('"').replace('\n', ' '),
+        "<p>" +content.replace('Here is the edited blog post', '').replace('Here is the revised blog post', '').replace('\n', '<br>').replace('The title is', '').replace('The title of this blog post is', '').replace('Here is a polished and professional version of the blog post', '')+ "</p>", page_id, created_at, updated_at
     )
   
     cursor.execute(sql, values)
@@ -756,14 +756,14 @@ try:
                 # Send the blog content via email
                 send_email(
                     recipient_email="edwardlorilla2205.edwardlancelorilla@blogger.com",
-                    subject=blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', ''),
+                    subject=blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it', ''),
 <<<<<<< HEAD
                     content=blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace('Let me know if you need any further assistance', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
 =======
                     content=blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
 >>>>>>> 9b956ef7b526db0e77b9dad4ff44699a30a13fea
                 )
-                title = blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '')
+                title = blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it', '')
 <<<<<<< HEAD
                 summary = blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace('Let me know if you need any further assistance', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
                 content = blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace('Let me know if you need any further assistance', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
@@ -772,7 +772,7 @@ try:
                 content = blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
 >>>>>>> 9b956ef7b526db0e77b9dad4ff44699a30a13fea
                 keywords = "SEO, website, marketing, search engines"
-                slug = blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '')
+                slug = blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it', '')
                 thumbnail = "default-thumbnail.jpg" 
                 insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
             else:
