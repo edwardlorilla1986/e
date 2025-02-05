@@ -82,7 +82,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     """
     values = (
-        "en", title.replace('The title is', '').replace("Here is a rewritten version of the blog post with a polished and professional tone, grammar, and readability", '').replace('The title you provided is', '').replace('Here is the polished and professional version of the blog post', '').replace("Here's the revised blog post", '').replace('The title of this blog post is', '').strip('"').replace('\n', ' '), 1, 1,
+        "ar", title.replace('The title is', '').replace("Here is a rewritten version of the blog post with a polished and professional tone, grammar, and readability", '').replace('The title you provided is', '').replace('Here is the polished and professional version of the blog post', '').replace("Here's the revised blog post", '').replace('The title of this blog post is', '').strip('"').replace('\n', ' '), 1, 1,
         1, title.replace('The title is', '').replace("Here is a rewritten version of the blog post with a polished and professional tone, grammar, and readability", '').replace('The title you provided is', '').replace('Here is the polished and professional version of the blog post', '').replace("Here's the revised blog post", '').strip('"').replace('\n', ' '), title.replace('The title is', '').replace("Here is a rewritten version of the blog post with a polished and professional tone, grammar, and readability", '').replace('The title you provided is', '').replace('Here is the polished and professional version of the blog post', '').replace("Here's the revised blog post", '').strip('"').replace('\n', ' '), title.replace('The title is', '').replace("Here is a rewritten version of the blog post with a polished and professional tone, grammar, and readability", '').replace('The title you provided is', '').replace('Here is the polished and professional version of the blog post', '').replace("Here's the revised blog post", '').strip('"').replace('\n', ' '),
         "<p>" +content.replace('Here is the edited blog post', '').replace("Here is a rewritten version of the blog post with a polished and professional tone, grammar, and readability", '').replace("Here's the revised blog post", '').replace('Here is the revised blog post', '').replace('\n', '<br>').replace('The title is', '').replace('The title of this blog post is', '').replace('Here is a polished and professional version of the blog post', '')+ "</p>", page_id, created_at, updated_at
     )
@@ -130,7 +130,7 @@ if os.path.exists(seed_file):
         seed = int(file.read().strip()) + 1
 else:
     seed = 1
-rss_url = 'https://www.manilatimes.net/sports/feed/'
+rss_url = 'https://qatarjust.com/feed/'
 feed = feedparser.parse(rss_url)
 
 # Parse the RSS feed entries
