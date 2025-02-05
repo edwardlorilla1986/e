@@ -114,26 +114,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
         "keyLocation": f"https://multiculturaltoolbox.com/{API_KEY}.txt",  # Place API key on your site
         "urlList": URLS
     }
-    try:
-        # Send request to IndexNow
-        response = requests.post(INDEXNOW_ENDPOINT, json=payload, headers={'Content-Type': 'application/json'})
-        # Check response
-        response.raise_for_status()  # Raise an exception for 4xx/5xx responses
-        # Success response
-        print("✅ URL successfully submitted to IndexNow!")
-        print("🔹 Response:", response.json())
-
-    except requests.exceptions.RequestException as e:
-        # Handle request exceptions (network errors, bad responses, etc.)
-        print("❌ Error submitting URL to IndexNow")
-        print(f"🔹 Exception: {e}")
-    # Print response
-    if response.status_code == 200:
-        print("URL successfully submitted to IndexNow!")
-    else:
-        print(f"Error: {response.status_code} - {response.text}")
-    print(f"Blog post '{title}' inserted successfully!")
-
+    
     
 def download_image(image_url, file_name):
     response = requests.get(image_url)
