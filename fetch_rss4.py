@@ -722,20 +722,11 @@ try:
                 send_email(
                     recipient_email="edwardlorilla2204.edwardlancelorilla@blogger.com",
                     subject=blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it', ''),
-<<<<<<< HEAD
                     content=blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace('Let me know if you need any further assistance', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
-=======
-                    content=blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
->>>>>>> 9b956ef7b526db0e77b9dad4ff44699a30a13fea
                 )
                 title = blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it', '')
-<<<<<<< HEAD
                 summary = blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace('Let me know if you need any further assistance', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
                 content = blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace('Let me know if you need any further assistance', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
-=======
-                summary = blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
-                content = blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '').replace(':', '').replace('"', '').replace('<br>', '').replace('*', '').replace("Here's a polished and professional version of the blog post", '')
->>>>>>> 9b956ef7b526db0e77b9dad4ff44699a30a13fea
                 keywords = "SEO, website, marketing, search engines"
                 slug = blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it', '')
                 thumbnail = "default-thumbnail.jpg" 
