@@ -773,7 +773,7 @@ try:
                 keywords = "SEO, website, marketing, search engines"
                 slug = blog_content["title"].replace("Here's the polished and professional version of the blog post", '').replace('The title of the blog post is', '').replace(':', '').replace('<br>', '').replace('*', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it', '').replace('Here is the edited blog post', '').replace('Here is the revised blog post', '').replace('The title is', '').replace('The title of this blog post is', '').replace('Here is a polished and professional version of the blog post', '')
                 thumbnail = "default-thumbnail.jpg" 
-                insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
+                #insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
             else:
                 print(f"Blog content generation failed for entry '{entry['title']}'. Email will not be sent.")
         except Exception as e:

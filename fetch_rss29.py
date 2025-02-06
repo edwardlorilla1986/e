@@ -793,7 +793,7 @@ try:
                 thumbnail = "default-thumbnail.jpg" 
                 blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '')
                 # Insert tblog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '') into the MySQL database
-                insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
+                #insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
             else:blog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '')
                 print(f"Blblog_content["blog"].replace("Here's the polished and professional version of the blog post", '').replace(':', '')n failed for entry '{entry['title']}'. Email will not be sent.")
         except Exception as e:

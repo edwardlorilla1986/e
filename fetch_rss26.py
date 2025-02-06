@@ -752,7 +752,7 @@ try:
                 thumbnail = "default-thumbnail.jpg" 
                 
                 # Insert the generated content into the MySQL database
-                insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
+                #insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail)
             else:
                 print(f"Blog content generation failed for entry '{entry['title']}'. Email will not be sent.")
         except Exception as e:
