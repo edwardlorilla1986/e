@@ -1,6 +1,7 @@
 
 import re
 import mysql.connector
+import markdown
 import feedparser
 import json
 import os

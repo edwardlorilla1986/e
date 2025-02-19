@@ -10,6 +10,7 @@ from email.mime.text import MIMEText
 from email.mime.base import MIMEBase
 from email import encoders
 import mysql.connector
+import markdown
 import os
 from datetime import datetime
 import requests
