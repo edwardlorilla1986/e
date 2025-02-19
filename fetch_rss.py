@@ -85,7 +85,7 @@ def insert_blog_post_to_db(title, summary, content, keywords, slug, thumbnail):
     values = (
         "en", title.replace('The title is:', '').replace('The title of this blog post is:', '').strip('"').replace('\n', ' '), 1, 1,
         1, title.replace('The title is:', '').strip('"').replace('\n', ' '), title.replace('The title is:', '').strip('"').replace('\n', ' '), title.replace('The title is:', '').strip('"').replace('\n', ' '),
-        "<p>" +markdown.markdown(content).replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('\n', '<br>').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '')+ "</p>", page_id, created_at, updated_at
+        markdown.markdown(content).replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('\n', '<br>').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', ''), page_id, created_at, updated_at
     )
   
     cursor.execute(sql, values)
