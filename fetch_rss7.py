@@ -718,7 +718,7 @@ try:
         try:
             # Check if the content contains "Error"
             if "Error" not in blog_content:
-                # Send the blog content via email
+                send_slug = re.sub(r'[^a-zA-Z0-9\s-]', '', slug.replace('The title is:', '').replace('The title of this blog post is:', '')).lower().strip().replace('\n', ' ').replace(' ', '-').replace('the-title-of-this-polished-and-professional-blog-post-is', "").replace('the-title-of-this-polished-and-professional-blog-post-is', "")
                 send_email(
                     recipient_email="edwardlorilla2207.edwardlancelorilla@blogger.com",
                     subject=blog_content["title"].replace('<br>', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', ''),
