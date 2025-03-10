@@ -721,7 +721,7 @@ try:
                 send_slug = re.sub(r'[^a-zA-Z0-9\s-]', '', slug.replace('The title is:', '').replace('The title of this blog post is:', '')).lower().strip().replace('\n', ' ').replace(' ', '-').replace('the-title-of-this-polished-and-professional-blog-post-is', "").replace('the-title-of-this-polished-and-professional-blog-post-is', "")
                 send_email(
                     recipient_email="edwardlorilla2202.edwardlancelorilla@blogger.com",
-                    subject=blog_content["title"].replace('<br>', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', ''),
+                    subject=__title,
                     content=blog_content["blog"].replace('"', '').replace('<br>', '').replace("Here's a polished and professional version of the blog post:", '')
                 )
                 title = __title
