@@ -662,7 +662,7 @@ def get_ollama_response(input_text, no_words, blog_style, word_of_the_day, model
 
 
     ]                     
-    prompt = random.choice(prompts) + " Use a professional yet approachable tone, and make sure the content is easy to read, with clear subheadings and varied sentence structure for improved readability. Integrate keywords relevant to the tool and field"
+    prompt = random.choice(prompts)
     try:
         ensure_model_available(model_name)
         result = subprocess.run(
@@ -677,13 +677,6 @@ def get_ollama_response(input_text, no_words, blog_style, word_of_the_day, model
         print("Ollama Response Retrieved Successfully.")
         crew = AICrew(model_name)
         final_content = crew.edit_content(result.stdout.strip())
-        promptTitle = f"what is the title {final_content} please answer directly?"
-        resultTitle = subprocess.run(
-            ["ollama", "run", model_name, promptTitle],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
         return {
             "blog": (final_content),
             "title": input_text
