@@ -686,7 +686,7 @@ def get_ollama_response(input_text, no_words, blog_style, word_of_the_day, model
         )
         return {
             "blog": (final_content),
-            "title": resultTitle.stdout.strip()
+            "title": input_text
         }
     except Exception as e:
         return f"Error during query: {e}"
@@ -767,7 +767,7 @@ try:
                     content=blog_content["blog"].replace('"', '').replace('<br>', '').replace("Here's a polished and professional version of the blog post:", '').replace('Here is the edited blog post:', '').replace('Here is the revised blog post:', '').replace('\n', '<br>').replace('The title is:', '').replace('The title of this blog post is:', '').replace('Here is a polished and professional version of the blog post:', '') + " " + "https://multiculturaltoolbox.com/blog/" +send_slug,
                     attachment_path=file_name
                 )
-                title = blog_content["title"].replace('<br>', '').replace('The title of this edited blog post is', '').replace('Based on your edited blog post, I would title it:', '')
+                title = __title
                 summary = blog_content["blog"].replace('"', '').replace('<br>', '').replace("Here's a polished and professional version of the blog post:", '')
                 content = blog_content["blog"].replace('"', '').replace('<br>', '').replace("Here's a polished and professional version of the blog post:", '')
                 keywords = "SEO, website, marketing, search engines"

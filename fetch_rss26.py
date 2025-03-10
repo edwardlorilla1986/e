@@ -667,7 +667,7 @@ def get_ollama_response(input_text, no_words, blog_style, word_of_the_day, model
         )
         return {
             "blog": (final_content),
-            "title": resultTitle.stdout.strip()
+            "title": input_text
         }
     except Exception as e:
         return f"Error during query: {e}"
