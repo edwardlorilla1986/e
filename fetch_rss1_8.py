@@ -676,13 +676,7 @@ def get_ollama_response(input_text, no_words, blog_style, word_of_the_day, model
         print("Ollama Response Retrieved Successfully.")
         crew = AICrew(model_name)
         final_content = crew.edit_content(result.stdout.strip())
-        promptTitle = f"what is the title  {final_content}?"
-        resultTitle = subprocess.run(
-            ["ollama", "run", model_name, promptTitle],
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            text=True
-        )
+        
         return {
             "blog": (final_content),
             "title": input_text
